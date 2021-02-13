@@ -9,12 +9,23 @@ body{
   font-size: 0.75rem;
 }
 
-main {
-  width: 100%;
+.main {
+  padding-top: 100px;
+}
+#root {
+  height: 100%;
+  .home { height: 100%; display: flex; align-items: center;}
+  .main {
+    background: url("../assets/images/bg.svg") no-repeat 0 100px ; position: relative;
+    &:after{
+      content: "";
+      position: absolute; bottom: 0; right: 0; width: 300px; height: 160px;
+      background: url("../assets/images/bg2.svg") no-repeat 0 0px ;
+    }
+  }
 }
 
 .navbar {
-
   -webkit-box-shadow: 0px 4px 40px rgba(0, 66, 218, 0.1);
   -moz-box-shadow: 0px 4px 40px rgba(0, 66, 218, 0.1);
   box-shadow: 0px 4px 40px rgba(0, 66, 218, 0.1);
@@ -27,11 +38,6 @@ main {
   img {width: 38px; height: auto;}
 }
 
-#root {
-  height: 100%;
-  .home { height: 100%; display: flex; align-items: center;}
-}
-
 .link-content {
   width: 100%; max-width: 17.5rem;  margin: auto;
   .btn {
@@ -42,6 +48,10 @@ main {
     &:hover{
       background-color: $green;
       color: white;
+
+      .icon svg path{
+        fill: #fff;
+      }
     }
 
     .msg {
@@ -60,3 +70,4 @@ main {
     background-color: $primary; border-color: $primary; font-size: 0.563rem; cursor: inherit;
   }
 }
+.btnAdd {position: absolute; bottom: 20px; right: 100px;}

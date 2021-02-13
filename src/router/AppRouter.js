@@ -9,6 +9,8 @@ import {
 import {Navbar} from "../components/navbar/Navbar";
 import {Home} from "../components/home/Home";
 import {Interventions} from "../components/interventions/Interventions";
+import IconAdd from "../components/common/IconAdd";
+
 
 export const AppRouter = () => {
     return (
@@ -17,10 +19,11 @@ export const AppRouter = () => {
                 <Navbar />
                 <Switch>
                     <Route exact path='/' component={ Home} />
-                    <Route exact path='/interventions' component={ Interventions } />
+                    <Route  path='/interventions' component={ Interventions } />
 
                     <Redirect to="/" />
                 </Switch>
+                <div className="btnAdd"><IconAdd /></div>
             </>
         </Router>
     )

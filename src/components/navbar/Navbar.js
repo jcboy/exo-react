@@ -1,23 +1,25 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import {Link, useLocation} from "react-router-dom";
+import React, {useContext} from 'react';
+import {Link} from "react-router-dom";
 import Moment from 'react-moment';
 import IconLogout from "../common/IconLogout";
 import logo from '../../assets/images/logo.png';
+import {PageContext} from "../common/PageContext";
 
 const now = new Moment();
 
-export const Navbar = ({mapage}) => {
+export const Navbar = () => {
 
-    const [pageState, setPageState] = useState('homepage');
+    const { pageName, setPageName } = useContext(PageContext);
 
     return (
         <div className="container fixed-top">
             <nav className="navbar navbar-expand-lg px-4  mt-4">
                 <div className="titlePage me-auto">
-                    {mapage}-------
+                    {pageName === '' ? 'Accueil' : pageName }
                 </div>
-                <Link to="/" className="navbar-brand"> <img src={logo} alt="Logo" /> </Link>
+
+                <Link to="/" onClick={ ()=> setPageName('Accueil') } className="navbar-brand"> <img src={logo} alt="Logo" /> </Link>
+
                 <div className="welcome ">Bonjour, Jhon</div>
 
                 <Moment format="DD/MM/YYYY" className="btn btn-primary date ms-4">{now}</Moment>
@@ -25,8 +27,4 @@ export const Navbar = ({mapage}) => {
             </nav>
         </div>
     )
-}
-
-Navbar.defaultProps = {
-    mapage: 'Home page'
 }
